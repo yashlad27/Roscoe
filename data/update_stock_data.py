@@ -51,12 +51,14 @@ def update_stock_data():
         print(f"Fetching stock data for {ticker} at {datetime.now()}...")
 
         # Fetch stock data (fixing weekend errors)
-        start_date = (datetime.strptime(last_market_day, "%Y-%m-%d") - timedelta(days=1)).strftime(
-            '%Y-%m-%d')
-        end_date = (datetime.strptime(last_market_day, "%Y-%m-%d") + timedelta(days=1)).strftime(
-            '%Y-%m-%d')
+        # start_date = (datetime.strptime(last_market_day, "%Y-%m-%d") - timedelta(days=1)).strftime(
+        #     '%Y-%m-%d')
+        # end_date = (datetime.strptime(last_market_day, "%Y-%m-%d") + timedelta(days=1)).strftime(
+        #     '%Y-%m-%d')
+        #
+        # data = yf.download(ticker, start=start_date, end=end_date)
 
-        data = yf.download(ticker, start=start_date, end=end_date)
+        data = yf.download(ticker, period="5y")
 
         if data.empty:
             print(f"⚠️ No data for {ticker} on {last_market_day}, skipping...")
