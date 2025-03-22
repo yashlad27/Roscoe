@@ -1,2 +1,8 @@
-PyMySQL~=1.1.1
-yfinance~=0.2.55
+pandas
+numpy
+yfinance
+backtrader
+tensorflow
+scikit-learn
+pymysql
+sqlalchemy
